@@ -167,11 +167,11 @@ Les paramètres de silence peuvent changer avec le micro utilisé.
 
 Définition par défaut:
 ```text
-	sox -q -r 16000 -b 16 -t waveaudio 0 -t wav <FileName> silence 1 0 3% 1 0:10 3%
+	sox -q -r 16000 -b 16 -t waveaudio 0 -t wav <FileName> silence 1 0 3% 1 0:05 3%
 ```
 - silence 1 0 3% 1 0:05 3% où:
 	- 1 0 3% correspond à 0 seconde de silence pour signifier un début d'enregistrement et 3% de bruit sonore.
-	- 1 0:05 3% correspond à 5 secondes de silence (0:05) après un message pour intérrompre l'enregistrement avec 3% de bruit sonore.
+	- 1 0:05 3% correspond à 5 secondes de silence (0:05) pour intérrompre l'enregistrement avec 3% de bruit sonore.
 	
 **Important**
 - L'écoute ne s'intérrompt pas tant qu'il y a un bruit audio suffisament audible à enregistrer.
@@ -271,7 +271,7 @@ Par exemple, si je veux ajoutez une catégorie 'course de formule 1', j'ajoute u
 
 Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 - **Je t'écoute pour un rendez-vous...**
-	- Attendez 1 ou 2 secondes pour l'initialisation de l'action puis dites votre rendez-vous.
+	- Attendez 2 ou 3 secondes pour l'initialisation de l'action puis dites votre rendez-vous.
 	- Par ex: **La réparation de la voiture**
 		- **A noter** que vous pouvez dire **Annule Sarah** pour intérrompre la commande.
 		- Sarah vous retourne ce qu'elle a comprit:
@@ -297,30 +297,32 @@ La création d'un mémo se fait par une règle composée:
 		
 Après le déclenchement de la règle, Sarah vous dit:
 - **Je t'écoute pour un mémo...**
-	- Attendez 1 ou 2 secondes pour l'initialisation de l'action puis dites votre mémo.
+	- Attendez 2 ou 3 secondes pour l'initialisation de l'action puis dites votre mémo.
 	- Vous disposez du délais maximum de la propriété [timeRecord](#timeRecord) pour enregistrer le mémo et il est automatiquement terminé après le silence du paramètre de [sox](#params).
 		- Si le paramètre [setCategory](#setCategory) est à **true**:
-		- Sarah vous demande: **Tu veux définir une catégorie ?**
-			- Dites alors:
-				- **Oui s'il te plait**
-					- Déclenche le mode [lazyrubric.xml](#lazyrubric.xml)
-					- Sarah vous dit : **Je t'écoute...**
-						- Dites la catégorie pour le mémo (par ex " Catégorie Maison").
-							- Sarah vous retourne ce qu'elle a comprit.
-							- Dites alors:
-								- **Oui c'est bon**
-									- Prend en compte la catégorie et passe à [l'étape suivante](#Etape-suivante).
-								- **Non recommence**
-									- Permet de définir une autre catégorie.
-								- **Annule**
-									- Interrompt la commande.
-				- **Recommence**
-					- Annule et redémarre l'enregistrement du mémo.
-				- **Non merci** OU **Pas la peine**
-					- Passe à [l'étape suivante](#Etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#defaultCategory)
-				- **annule**
-					- Interrompt la commande.
-						
+			- Sarah vous demande: **Tu veux définir une catégorie ?**
+				- Dites alors:
+					- **Oui s'il te plait**
+						- Déclenche le mode [lazyrubric.xml](#lazyrubric.xml)
+						- Sarah vous dit : **Je t'écoute...**
+							- Dites la catégorie pour le mémo (par ex " Catégorie Maison").
+								- Sarah vous retourne ce qu'elle a comprit.
+								- Dites alors:
+									- **Oui c'est bon**
+										- Prend en compte la catégorie et passe à [l'étape suivante](#Etape-suivante).
+									- **Non recommence**
+										- Permet de définir une autre catégorie.
+									- **Annule**
+										- Interrompt la commande.
+					- **Recommence**
+						- Annule et redémarre l'enregistrement du mémo.
+					- **Non merci** OU **Pas la peine**
+						- Passe à [l'étape suivante](#Etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#defaultCategory)
+					- **annule**
+						- Interrompt la commande.
+		- Si le paramètre [setCategory](#setCategory) est à **false**:
+			- Passe à [l'étape suivante](#Etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#defaultCategory)
+		
 ### Etape suivante				
 Etape suivante de création de mémo après l'enregistrement du mémo et (optionnelle) la définition d'une catégorie.
 	
