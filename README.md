@@ -254,7 +254,7 @@ La création d'un événement se fait par une règle composée:
 	- un 
 	- une
 		- évenements
-			- Catégorie par défaut définie dans la propriété [Event](#defaultCategory)
+			- Catégorie par défaut définie dans la propriété [Event](#eventdefaultcategory-vstring)
 		- rendez-vous
 		- anniversaire
 		- fête
@@ -298,8 +298,8 @@ La création d'un mémo se fait par une règle composée:
 Après le déclenchement de la règle, Sarah vous dit:
 - **Je t'écoute pour un mémo...**
 	- Attendez 2 ou 3 secondes pour l'initialisation de l'action puis dites votre mémo.
-	- Vous disposez du délais maximum de la propriété [timeRecord](#timeRecord) pour enregistrer le mémo et il est automatiquement terminé après le silence du paramètre de [sox](#params).
-		- Si le paramètre [setCategory](#setCategory) est à **true**:
+	- Vous disposez du délais maximum de la propriété [timeRecord](#soxtimerecord-vinteger) pour enregistrer le mémo et il est automatiquement terminé après le silence du [paramètre](#soxparams--vstring) de sox.
+		- Si le paramètre [setCategory](#memosetcategory-vboolean) est à **true**:
 			- Sarah vous demande: **Tu veux définir une catégorie ?**
 				- Dites alors:
 					- **Oui s'il te plait**
@@ -309,7 +309,7 @@ Après le déclenchement de la règle, Sarah vous dit:
 								- Sarah vous retourne ce qu'elle a comprit.
 								- Dites alors:
 									- **Oui c'est bon**
-										- Prend en compte la catégorie et passe à [l'étape suivante](#Etape-suivante).
+										- Prend en compte la catégorie et passe à [l'étape suivante](#etape-suivante).
 									- **Non recommence**
 										- Permet de définir une autre catégorie.
 									- **Annule**
@@ -317,11 +317,11 @@ Après le déclenchement de la règle, Sarah vous dit:
 					- **Recommence**
 						- Annule et redémarre l'enregistrement du mémo.
 					- **Non merci** OU **Pas la peine**
-						- Passe à [l'étape suivante](#Etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#defaultCategory)
+						- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#defaultCategory)
 					- **annule**
 						- Interrompt la commande.
-		- Si le paramètre [setCategory](#setCategory) est à **false**:
-			- Passe à [l'étape suivante](#Etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#defaultCategory)
+		- Si le paramètre [setCategory](#memosetcategory-vboolean) est à **false**:
+			- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#defaultCategory)
 		
 ### Etape suivante				
 Etape suivante de création de mémo après l'enregistrement du mémo et (optionnelle) la définition d'une catégorie.
