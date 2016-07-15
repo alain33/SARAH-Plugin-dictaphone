@@ -387,10 +387,13 @@ Ce tag dans chaque règle associée à la recherche d'événements dans le fichi
 #### Les valeurs spéciales du tag **sendType**			
 Ces valeurs sont utilisées pour un appel avec un 'SARAH.call' depuis un autre plugin ou le plugin `scenariz` dans un scénario.
 - **out.action.sendType="Trigger"**			
-	- Sarah énonce les événements uniquement par un **tts callback**.
+	- Les événements sont envoyés dans un **tts callback**.
+	- Les événements sont dans une seule chaine de caractères et séparés par des '@@' qu'il faudra formater correctement.
 - **out.action.sendType="Trigger-Push"**		
-	- Sarah énonce les événements par un **tts callback** et envoie une notification (SMS ou pushOver).
-**Important**: Si vous voulez créer un scénario avec le plugin `scenariz`, prenez la dernière version V3.1 qui a été légèrement modifiée pour accepter des callback tts de dictaphone.
+	- Les événements sont envoyés dans un **tts callback** et envoie une notification (SMS ou pushOver) en parallèle.
+	- Les événements sont dans une seule chaine de caractères et séparés par des '@@' qu'il faudra formater correctement.
+	
+**Important**: Si vous voulez créer un scénario avec le plugin `scenariz`, prenez la dernière version V3.1 qui a été légèrement modifiée pour accepter les callback tts de dictaphone.
 
 
 #### Le tag de genre
