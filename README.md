@@ -17,21 +17,21 @@ on top of:
 		- Fourni avec tous les jours fériés pour 2016, 2017 et 2018
 	- Un dictaphone.
 		- Enregistreur vocale de mémos.
-- Rubriques de classements des événements et mémos totalement configurables sans développement.
-- Recherche des événements et mémos pour:
-	- Le jour même, le lendemain, le sur-lendemain, un nombre de jours spécifiques.
-	- Entre aujourd'hui et un nombre de jours.
-	- Pour la semaine courante.
-	- Pour la semaine suivante.
-	- Pour le mois courant.
-	- Totalement configurable sans développement.
-- Permet d'être averti des événements manqués pour la journée courante.
-- Permet d'envoyer les événements par SMS (free) ou Pushover.
-	- Pour n'importe quelle plage de recherche.
-	- Possibilité d'ajouter facilement par développement un autre type d'envois.
-- Associé au plugin `scenariz`, il vous permet de programmer la recherche d'événements:
-	- Créez ou ajoutez à votre réveil tous les événements dont vous voulez être averti pour le jour même, pour la semaine, etc...
-	- Ou envoyez les événements sur votre smartphone.
+	- Rubriques de classements des événements et mémos totalement configurables sans développement.
+	- Recherche des événements et mémos pour:
+		- Le jour même, le lendemain, le sur-lendemain, un nombre de jours spécifiques.
+		- Entre aujourd'hui et un nombre de jours.
+		- Pour la semaine courante.
+		- Pour la semaine suivante.
+		- Pour le mois courant.
+		- Totalement configurable sans développement.
+	- Permet d'être averti des événements manqués pour la journée courante.
+	- Permet d'envoyer les événements par SMS (free) ou Pushover.
+		- Pour n'importe quelle plage de recherche.
+		- Possibilité d'ajouter facilement par développement un autre type d'envois.
+	- Associé au plugin `scenariz`, il vous permet de programmer la recherche d'événements:
+		- Créez ou ajoutez à votre réveil tous les événements dont vous voulez être averti pour le jour même, pour la semaine, etc...
+		- Ou envoyez les événements sur votre smartphone.
 
 ## Table des matières
 - [Compatibilité](#compatibilité)	
