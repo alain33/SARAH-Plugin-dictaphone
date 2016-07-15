@@ -44,6 +44,7 @@ on top of:
 	- [Memo](#memo)
 	- [Event](#event)
 - [Sauvegarder un événement](#sauvegarder-un-événement)
+- [Recherche d'événements](#recherche-dévénements)
 - [Sauvegarder un mémo](#sauvegarder-un-mémo)
 - [Problèmes connus](#problèmes-connus)
 - [Versions](#versions)
@@ -286,6 +287,11 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 							- Vous pouvez recommencer à dicter un jour et heure de rappel si celui-çi n'est pas bon. 
 						- **Annule**
 							- Interrompt la commande.
+
+## Recherche d'événements
+
+
+
 							
 ## Sauvegarder un mémo
 La création d'un mémo se fait par une règle composée:
@@ -317,11 +323,16 @@ Après le déclenchement de la règle, Sarah vous dit:
 					- **Recommence**
 						- Annule et redémarre l'enregistrement du mémo.
 					- **Non merci** OU **Pas la peine**
-						- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#defaultCategory)
+						- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#memodefaultcategory-vstring)
 					- **annule**
 						- Interrompt la commande.
 		- Si le paramètre [setCategory](#memosetcategory-vboolean) est à **false**:
-			- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#defaultCategory)
+			- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#memodefaultcategory-vstring)
+
+
+			
+		
+		
 		
 ### Etape suivante				
 Etape suivante de création de mémo après l'enregistrement du mémo et (optionnelle) la définition d'une catégorie.
