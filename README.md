@@ -255,7 +255,7 @@ La création d'un événement se fait par une règle composée:
 	- un 
 	- une
 		- évenements
-			- Catégorie par défaut définie dans la propriété [Event](#eventdefaultcategory-vstring)
+			- Catégorie par défaut définie dans la propriété [defaultcategory](#eventdefaultcategory-vstring)
 		- rendez-vous
 		- anniversaire
 		- fête
@@ -275,12 +275,12 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 	- Attendez 2 ou 3 secondes pour l'initialisation de l'action puis dites votre rendez-vous.
 	- Par ex: **La réparation de la voiture**
 		- **A noter** que vous pouvez dire **Annule Sarah** pour intérrompre la commande.
-		- Sarah vous retourne ce qu'elle a comprit:
-		- **La réparation de la voiture ? d'accord et pour quand tu veux ca ?**
-			- Déclenche le mode [lazydays.xml](#lazydays.xml)
-			- Dites **en articulant et distinctement** le jour et/ou le mois et/ou l'année et/ou l'heure et les minutes
-				- Sarah vous retourne ce qu'elle a comprit.
-					- Dites alors:
+			- Sarah vous retourne ce qu'elle a comprit:
+			- **La réparation de la voiture ? d'accord et pour quand tu veux ca ?**
+				- Déclenche le mode [lazydays.xml](#lazydays.xml)
+				- Dites **en articulant et distinctement** le jour et/ou le mois et/ou l'année et/ou l'heure et les minutes
+					- Sarah vous retourne ce qu'elle a comprit.
+						- Dites alors:
 						- **Oui c'est bon** OU **oui parfait**
 							- Sauvegarde l'événement dans la base et termine la commande.
 						- **Non recommence**
@@ -308,24 +308,24 @@ Après le déclenchement de la règle, Sarah vous dit:
 		- Si le paramètre [setCategory](#memosetcategory-vboolean) est à **true**:
 			- Sarah vous demande: **Tu veux définir une catégorie ?**
 				- Dites alors:
-					- **Oui s'il te plait**
-						- Déclenche le mode [lazyrubric.xml](#lazyrubric.xml)
-						- Sarah vous dit : **Je t'écoute...**
-							- Dites la catégorie pour le mémo (par ex " Catégorie Maison").
-								- Sarah vous retourne ce qu'elle a comprit.
-								- Dites alors:
-									- **Oui c'est bon**
-										- Prend en compte la catégorie et passe à [l'étape suivante](#etape-suivante).
-									- **Non recommence**
-										- Permet de définir une autre catégorie.
-									- **Annule**
-										- Interrompt la commande.
-					- **Recommence**
-						- Annule et redémarre l'enregistrement du mémo.
-					- **Non merci** OU **Pas la peine**
-						- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#memodefaultcategory-vstring)
-					- **annule**
-						- Interrompt la commande.
+				- **Oui s'il te plait**
+					- Déclenche le mode [lazyrubric.xml](#lazyrubric.xml)
+					- Sarah vous dit : **Je t'écoute...**
+						- Dites la catégorie pour le mémo (par ex " Catégorie Maison").
+							- Sarah vous retourne ce qu'elle a comprit.
+							- Dites alors:
+								- **Oui c'est bon**
+									- Prend en compte la catégorie et passe à [l'étape suivante](#etape-suivante).
+								- **Non recommence**
+									- Permet de définir une autre catégorie.
+								- **Annule**
+									- Interrompt la commande.
+				- **Recommence**
+					- Annule et redémarre l'enregistrement du mémo.
+				- **Non merci** OU **Pas la peine**
+					- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#memodefaultcategory-vstring)
+				- **annule**
+					- Interrompt la commande.
 		- Si le paramètre [setCategory](#memosetcategory-vboolean) est à **false**:
 			- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#memodefaultcategory-vstring)
 
