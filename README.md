@@ -279,6 +279,8 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 				- Dites **en articulant et distinctement** le jour et/ou le mois et/ou l'année et/ou l'heure et les minutes
 					- Sarah vous retourne ce qu'elle a comprit.
 						- Dites alors:
+						- **qu'est ce que je peux dire ?**
+							- Sarah énumére tous les choix que vous avez pour ce dialogue et le reprend.
 						- **Oui c'est bon** OU **oui parfait**
 							- Sauvegarde l'événement dans la base et termine la commande.
 						- **Non recommence**
@@ -292,6 +294,11 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 
 							
 ## Sauvegarder un mémo
+**Important**:
+Il est très important de se rappeler que dans pratiquement tous les dialogues de askme, vous pouvez dire:
+- **qu'est ce que je peux dire ?**
+Sarah vous énumérera tous les choix que vous avez pour le dialogue courant et reprendra le dialogue.
+
 La création d'un mémo se fait par une règle composée:
 - enregistre
 - prend
@@ -306,12 +313,16 @@ Après le déclenchement de la règle, Sarah vous dit:
 		- Si le paramètre [setCategory](#memosetcategory-vboolean) est à **true**:
 			- Sarah vous demande: **Tu veux définir une catégorie ?**
 				- Dites alors:
+				- **qu'est ce que je peux dire ?**
+					- Sarah énumére tous les choix que vous avez pour ce dialogue et le reprend.
 				- **Oui s'il te plait**
 					- Déclenche le mode [lazyrubric.xml](#lazyrubric.xml)
 					- Sarah vous dit : **Je t'écoute...**
 						- Dites la catégorie pour le mémo (par ex "Catégorie Maison").
 							- Sarah vous retourne ce qu'elle a comprit: **Catégorie Maison ?**.
-							- Dites alors:
+								- Dites alors:
+								- **qu'est ce que je peux dire ?**
+									- Sarah énumére tous les choix que vous avez pour ce dialogue et le reprend.
 								- **Oui c'est bon**
 									- Prend en compte la catégorie et passe à [l'étape suivante](#etape-suivante).
 								- **Non recommence**
@@ -339,17 +350,21 @@ L'étape suivante est la possibilité de créer une date de rappel pour le mémo
 - Si le paramètre [setRappel](#memosetsetrappel-vboolean) est à **true**:
 	- Sarah vous demande: **Tu veux définir un rappel ?**
 		- Dites alors:
-			- **oui s'il te plait**
+			- **qu'est ce que je peux dire ?**
+				- Sarah énumére tous les choix que vous avez pour ce dialogue et le reprend.
+			- **Oui s'il te plait**
 				- Déclenche le mode [lazydays.xml](#lazydays.xml)
 				- Dites **en articulant et distinctement** le jour et/ou le mois et/ou l'année et/ou l'heure et les minutes
 					- Sarah vous retourne ce qu'elle a comprit.
 						- Dites alors:
-							- **Oui c'est bon** OU **oui parfait**
-								- Sauvegarde le mémo dans la base et termine la commande.
-							- **Non recommence**
-								- Vous pouvez recommencer à dicter un jour et heure de rappel si celui-çi n'est pas bon. 
-							- **Annule**
-								- Interrompt la commande.
+						- **qu'est ce que je peux dire ?**
+							- Sarah énumére tous les choix que vous avez pour ce dialogue et le reprend.
+						- **Oui c'est bon** OU **oui parfait**
+							- Sauvegarde le mémo dans la base et termine la commande.
+						- **Non recommence**
+							- Vous pouvez recommencer à dicter un jour et heure de rappel si celui-çi n'est pas bon. 
+						- **Annule**
+							- Interrompt la commande.
 			- **Non c'est bon** OU **non merci**
 				- Sauvegarde le mémo dans la base et termine la commande.
 			- **annule**
