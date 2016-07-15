@@ -46,7 +46,7 @@ Dictaphone est:
 - [Sauvegarder un événement](#sauvegarder-un-événement)
 - [Recherche d'événements](#recherche-dévénements)
 - [Sauvegarder un mémo](#sauvegarder-un-mémo)
-- [Problèmes connus](#problèmes-connus)
+- [Problèmes et solutions](#problèmes-et-solutions)
 - [Versions](#versions)
 	
 ## Compatibilité
@@ -322,7 +322,7 @@ Après le déclenchement de la règle, Sarah vous dit:
 					- Annule et redémarre l'enregistrement du mémo.
 				- **Non merci** OU **Pas la peine**
 					- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#memodefaultcategory-vstring)
-				- **annule**
+				- **Annule**
 					- Interrompt la commande.
 		- Si le paramètre [setCategory](#memosetcategory-vboolean) est à **false**:
 			- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#memodefaultcategory-vstring)
@@ -350,7 +350,7 @@ L'étape suivante est la possibilité de créer une date de rappel pour le mémo
 								- Vous pouvez recommencer à dicter un jour et heure de rappel si celui-çi n'est pas bon. 
 							- **Annule**
 								- Interrompt la commande.
-			- **non c'est bon** OU **non merci**
+			- **Non c'est bon** OU **non merci**
 				- Sauvegarde le mémo dans la base et termine la commande.
 			- **annule**
 				- Interrompt la commande.
@@ -362,19 +362,15 @@ L'étape suivante est la possibilité de créer une date de rappel pour le mémo
 
 	
 						
-## Problèmes connus
-- Pour Sarah V4:
-	- La fonction askme de la V3 fonctionne mieux que la V4.
-		- Cela vient sans doute de la gestion de la grammaire qui est différente. Apparemment, les askme récursifs (nombreux dans ce plugin) avec des SARAH.speak en plus dans les réponses ne semblent pas trop bien gérés dans cette version.
-		- Si vous constatez des problèmes de règles qui se déclenchent toutes seules avec des askme, vérifiez qu'un mot dans un askme ne soit pas matché avec un des mots de vos règles et essayez de modifier les réponses de Sarah dans [le fichier lang](#modification-des-messages) ou dans vos règles.
-		- A défaut, ben... installez la V3.
-- Le niveau de confidence en V3 et V4:
-	- Si les erreurs de compréhensions sont trop importantes, que le dialogue est intérrompu ou qu'un choix est compris par Sarah alors que vous n'avez rien dit, pensez peut-être à augmenter le niveau de confidence.
+## Problèmes et solutions
+- Le niveau de confidence:
+	- Si les erreurs de compréhensions sont trop importantes, que le dialogue est intérrompu ou qu'un choix est compris par Sarah alors que vous n'avez rien dit, pensez à augmenter le niveau de confidence.
 	- Pensez aussi à réduire le son des périphériques pendant un dialogue.
+	- Pensez aussi à améliorer votre diction. Sarah n'est pas un être humain !
 - Kinect:
 	- Avec une Kinect, il peut arriver que certains dialogues des askme ne soient pas prononcés par Sarah. A mon avis, c'est dû aux librairies de la Kinect qui ne sont pas forcément bien développées, sûrement lié à la libération de la mémoire. Avec un micro normal, je n'ai jamais rencontré le problème et ça fonctionne correctement.
 
-Globalement, 9 fois sur 10, le dialogue fonctionne correctement mais si un problème survient (erreurs de compréhension, dialogue intérrompu, choix sélectionné sans avoir parlé), dans tous les cas ne desespérez pas, reprenez simplement le dialogue ou la commande normalement et persevérez. Ca arrive et cela suffit généralement à régler le 1 sur 10 qui reste... :-)
+Globalement, 9 fois sur 10, le dialogue fonctionne correctement mais si un problème survient, dans tous les cas ne desespérez pas, reprenez simplement le dialogue ou la commande normalement et persevérez. Ca arrive et cela suffit généralement à régler le problème.
 
    
    
