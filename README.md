@@ -293,7 +293,7 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 - Les événements définis pour un jour et sans heure peuvent être recherchés toute la journée.
 - Les événements définis avec une heure précise sont **par défaut** ignorés si l'heure est passée pour la journée courante.
 
-La recherche d'évenements se fait par une règle composée d'une ligne de chaque section/sous section:
+La recherche d'évenements est une règle composée d'une ligne de chaque section/sous section çi-dessous:
 - **recherche**
 - **dis-moi**
 - **j'ai**
@@ -324,9 +324,19 @@ La recherche d'évenements se fait par une règle composée d'une ligne de chaqu
 					- **cette semaine**
 					- **la semaine prochaine**
 					- **ce mois-ci**
-			
+
+**Par exemple:**
+```text
+	- j'ai des rendez-vous
+	- j'ai des rendez-vous pour aujourd'hui
+	- j'ai des évenements après demain
+	- dis-moi les anniversaire pour les 5 prochain jours
+	- recherche les jour férié de ce mois-ci
+```
+					
 **Important:** 
-- Les événements que vous avez ajoutez sont bien-sûr à ajouter dans les événements par défaut listés çi-dessus.
+- Les règles dites sans recherche dans le temps sont pour aujourd'hui par défaut.
+- Les événements que vous pouvez ajoutez sont bien-sûr à ajouter dans les événements par défaut listés çi-dessus.
 - De même, vous pouvez très facilement ajouter des périodes de recherche dans les sections **"dans X jours"** et **"X prochain jours"** du fichier dictaphone.xml.
 			
 Après le déclenchement de la règle, Sarah vous dit:
@@ -348,7 +358,7 @@ Après le déclenchement de la règle, Sarah vous dit:
 ### Les tags de recherche
 #### Pour ajouter les événements passés
 Par défaut, les événements passés sont ignorés, pour que Sarah vous les dise, il faut ajouter sur la règle qui vous intéresse le tag suivant:
-	- data.lostEvents="true"
+- data.lostEvents="true"
 
 Ce qui donne dans la règle (içi la règle "recherche"):
 ```xml	
