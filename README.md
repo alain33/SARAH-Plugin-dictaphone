@@ -29,7 +29,7 @@ Dictaphone est:
 - Permet d'envoyer les événements par SMS (free) ou Pushover.
 	- Pour n'importe quelle plage de recherche.
 	- Possibilité d'ajouter facilement par développement un autre type d'envois.
-- Associé au plugin `scenariz` ou à tout autre plugin par appel de trigger, il vous permet de programmer la recherche d'événements:
+- Associé au plugin `scenariz V3.1` ou à tout autre plugin par appel de trigger, il vous permet de programmer la recherche d'événements:
 	- Par exemple, créez ou ajoutez à votre réveil tous les événements dont vous voulez être averti pour le jour même, pour la semaine, etc...
 	- Ou encore, envoyez les événements sur votre smartphone.
 
@@ -347,7 +347,7 @@ La recherche d'évenements est une règle composée d'une ligne de chaque sectio
 	- Prenez exemple sur les règles déjà présentes, à savoir:
 		- Pour une date fixe, la valeur du tag est à définir avec un **=**
 		- Pour une date entre aujourd'hui et une période donnée, la valeur du tag est à définir avec un **<**
-			- **Attention**, au format xml, le caractère **<** s'écrit **&lt;**
+			- **Attention** au format xml pour le caractère **<**, (voir un exemple dans le fichier dictaphone.xml)
 		
 Après le déclenchement de la règle, Sarah vous dit:
 - **Je regarde...**		
@@ -390,6 +390,8 @@ Ces valeurs sont utilisées pour un appel avec un 'SARAH.call' depuis un autre p
 	- Sarah énonce les événements uniquement par un **tts callback**.
 - **out.action.sendType="Trigger-Push"**		
 	- Sarah énonce les événements par un **tts callback** et envoie une notification (SMS ou pushOver).
+**Important**: Si vous voulez créer un scénario avec le plugin `scenariz`, prenez la dernière version V3.1 qui a été légèrement modifiée pour accepter des callback tts de dictaphone.
+
 
 #### Le tag de genre
 Défini le genre masculin ou féminin de la rubrique pour le message: **Aucun rendez-vous pour...** OU **Aucune fête pour...** 		
