@@ -8,7 +8,7 @@ on top of:
 
 ## Introduction
 - Dictaphone est:
-	- Un gestionnaire d'evènements de calendrier autonome:
+	- Un gestionnaire d'événements de calendrier autonome:
 		- Rendez-vous, tâches.
 		- Anniversaires, fêtes.
 		- Jours fériés, dates de changement de saisons.
@@ -17,21 +17,21 @@ on top of:
 		- Fourni avec tous les jours fériés pour 2016, 2017 et 2018
 	- Un dictaphone.
 		- Enregistreur vocale de mémos.
-- Rubriques de classements des evènements et mémos totalement configurables sans développement.
-- Recherche des evènements et mémos pour:
-	- Le jour même, le lendemain, le sur-lendemain, un nombre de jour spécifique.
-	- Entre aujourd'hui et un nombre de jour spécifique.
+- Rubriques de classements des événements et mémos totalement configurables sans développement.
+- Recherche des événements et mémos pour:
+	- Le jour même, le lendemain, le sur-lendemain, un nombre de jours spécifiques.
+	- Entre aujourd'hui et un nombre de jours.
 	- Pour la semaine courante.
 	- Pour la semaine suivante.
 	- Pour le mois courant.
 	- Totalement configurable sans développement.
-- Permet d'être averti des evènements manqués pour la journée courante.
-- Permet d'envoyer les evènements par SMS (free) ou Pushover.
+- Permet d'être averti des événements manqués pour la journée courante.
+- Permet d'envoyer les événements par SMS (free) ou Pushover.
 	- Pour n'importe quelle plage de recherche.
 	- Possibilité d'ajouter facilement par développement un autre type d'envois.
-- Associé au plugin `scenariz`, il vous permet de programmer la recherche d'evènements:
-	- Créez ou ajoutez à votre réveil tous les evènements dont vous voulez être averti pour le jour même, pour la semaine, etc...
-	- Ou envoyez les evènements sur votre smartphone.
+- Associé au plugin `scenariz`, il vous permet de programmer la recherche d'événements:
+	- Créez ou ajoutez à votre réveil tous les événements dont vous voulez être averti pour le jour même, pour la semaine, etc...
+	- Ou envoyez les événements sur votre smartphone.
 
 ## Table des matières
 - [Compatibilité](#compatibilité)	
@@ -42,8 +42,8 @@ on top of:
 - [Propriétés](#propriétés)	
 	- [Sox](#sox-1)
 	- [Mémo](#mémo)
-	- [Evènements](#event)
-- [Sauvegarder un evènement](#sauvegarder-un-evènement)
+	- [événements](#event)
+- [Sauvegarder un événement](#sauvegarder-un-événement)
 - [Sauvegarder un mémo](#sauvegarder-un-mémo)
 - [Problèmes connus](#problèmes-connus)
 - [Versions](#versions)
@@ -59,7 +59,7 @@ on top of:
 
 ### custom.ini
 Il est très important de modifier la valeur du reset automatique du mode lazy de Sarah, par défaut de 30 secondes, pour que les dialogues se fassent correctement.
-- Localisation du fichier sarah.js d'origine de Sarah:
+- Localisation du fichier custom.ini:
 	- Pour la V3: `SARAH/custom.ini`
 		- Cherchez et modifiez la valeur de **ctxTimeout**, mettez par exemple 300000 (5 minutes)
 	- Pour la V4: `SARAH/client/custom.ini`
@@ -76,8 +76,8 @@ Le plugin utilise la fonction askme de Sarah pour la gestion vocale des scénari
 - Copiez le fichier `sarah.js` d'origine en `sarah.ori`
 - Copiez/collez le fichier `SARAH/dictaphone/install/'version'/sarah.js` dans son répertoire de localisation.
  
-##### Important:
-Si vous utilisez la fonction askme dans d'autres plugins, vous devrez modifier tous les appels à la fonction `end()` de la fonction `askme()` de vos plugins par `end(true)`.
+**Important:**
+- Si vous utilisez la fonction askme dans d'autres plugins, vous devrez modifier tous les appels à la fonction `end()` de la fonction `askme()` de vos plugins par `end(true)`.
 
 **Notez** qu'il n'est pas nécessaire de faire cette action dans mes plugins qui ont déjà tous cette modification.
 
@@ -139,7 +139,7 @@ Exemple pour un répertoire d'installation C:\\Apps\\sox-14-4-2 :
 ## Propriétés
 
 ### Sox
-##### sox#language (v:String)
+#### sox#language (v:String)
 Langage du texte à envoyer à Google speech2Text (par défaut fr-FR).
 ```text
 	"sox" : {
@@ -147,7 +147,7 @@ Langage du texte à envoyer à Google speech2Text (par défaut fr-FR).
 		.....
 ```
 
-##### sox#path  (v:String)
+#### sox#path  (v:String)
 répertoire d'installation de l'application Sox.
 
 Exemple pour un répertoire d'installation C:\\Apps\\sox-14-4-2 : 
@@ -158,7 +158,7 @@ Exemple pour un répertoire d'installation C:\\Apps\\sox-14-4-2 :
 		.....
 ```
 
-##### sox#params  (v:String)
+#### sox#params  (v:String)
 Paramètre d'utilisation de l'application Sox pour **l'enregistrement de mémo uniquement**.
 
 Référez-vous à la documentation de Sox pour le détail.
@@ -173,13 +173,13 @@ Définition par défaut:
 	- 1 0 3% correspond à 0 seconde de silence pour signifier un début d'enregistrement et 3% de bruit sonore.
 	- 1 0:05 3% correspond à 5 secondes de silence (0:05) après un message pour intérrompre l'enregistrement avec 3% de bruit sonore.
 	
-##### Important:
+**Important**
 - L'écoute ne s'intérrompt pas tant qu'il y a un bruit audio suffisament audible à enregistrer.
 - Réduisez le volume sonore dans la pièce avant d'enclencher l'écoute sans pour autant le couper complétement
 sinon l'écoute continuera même si vous arrêtez de parler.
 - Modifiez à votre convenance les 5 secondes de silence pour intérrompre l'enregistrement néanmoins il convient de comprendre que plus le délais est augmenté, plus vous pourrez avoir de silence dans la prise de mémo entre chaques phrases mais plus long sera le temps d'attente pour déclencher la sauvegarde du mémo.
 
-##### sox#google_api (v:String)
+#### sox#google_api (v:String)
 Récupérez votre clé Google API et copiez-la dans la propriété "google_api" du fichier de propriétés du plugin.
 
 Si vous ne disposez pas de clé Google API, suivez la documentation [S.A.R.A.H.](http://jpencausse.github.io/SARAH-Documentation/?page=getting_started_v3#r-cup-rer-une-google-api-key)
@@ -191,40 +191,40 @@ Exemple de propriété "google_api" du fichier dictaphone.prop:
 ```
 Une mauvaise clé pour l'API Google retournera dans la fenêtre console Sarah le message 'Error 403 (Forbidden)!!1'
 
-##### sox#timeRecord (v:Integer)
+#### sox#timeRecord (v:Integer)
 Délais maximal d'enregistrement du message vocale pour **l'enregistrement de mémo uniquement**.
 
 Défini à 60 secondes par défaut. Passé ce délais, l'action est intérrompu et le mémo n'est pas sauvegardé.
 
-##### sox#threashold (v:Float)
+#### sox#threashold (v:Float)
 Confidence pour la précision de traduction du message vocale en texte par Google speech2Text.
 
 Défini à 0.8 par défaut.
 
 ### Mémo
-##### Memo#setRappel (v:Boolean)
+#### Memo#setRappel (v:Boolean)
 Active l'enregistrement d'un jour et d'une heure pour les mémos.
 
 **true**: Donne la posibilité de définir un jour et une heure à l'enregistrement pour des mémos.
 
 **false**: Aucun jour et heure pour les mémos.
 
-##### Memo#setCategory (v:Boolean)
+#### Memo#setCategory (v:Boolean)
 Active l'enregistrement d'une catégorie pour les mémos.
 
 **true**: Donne la posibilité de définir une catégorie à l'enregistrement pour des mémos.
 
 **false**: Aucune catégorie spécifique pour le mémo, par défaut classé dans la catégorie définie dans la propriété 'defaultCategory'.
 
-##### Memo#defaultCategory (v:String)
+#### Memo#defaultCategory (v:String)
 Catégorie par défaut si la propriété 'setCategory' est **false**.
 
 ### Event
-##### Event#defaultCategory (v:String)
-Catégorie par défaut pour l'enregistrment d'evènements.
+#### Event#defaultCategory (v:String)
+Catégorie par défaut pour l'enregistrment d'événements.
 
 ### Notification
-##### Notification#sendType (v:String)
+#### Notification#sendType (v:String)
 Type de notification pour un envois SMS ou pushover.
 
 Par défaut, 2 types sont possibles:
@@ -245,10 +245,10 @@ Pour créer un autre type d'envoi:
 - Changez la valeur de la propriété 'sendType' par le nom de votre fichier js.
 - Aucune autre modification n'est requise, le fichier js est automatiquement chargé par la valeur de la propriété 'sendType'. 
 	
-## Sauvegarder un evènement
-Il existe déjà un certain nombre de catégories d'evènements dans le fichier dictaphone.xml.
+## Sauvegarder un événement
+Il existe déjà un certain nombre de catégories d'événements dans le fichier dictaphone.xml.
 
-La création d'un evènement se fait par une règle composée:
+La création d'un événement se fait par une règle composée:
 - sauvegarde
 - rappelle-moi
 	- un 
@@ -261,8 +261,8 @@ La création d'un evènement se fait par une règle composée:
 		- jour férié
 
 **Important:**
-Retrouvez les catégories d'evènements dans le fichier dictaphone.xml et ajoutez les votres à la suite. 
-Par exemple, si je veux ajoutez une catégorie 'course de formule 1', j'ajoute un règle dans la section 'evènement' de l'xml comme suit:
+Retrouvez les catégories d'événements dans le fichier dictaphone.xml et ajoutez les votres à la suite. 
+Par exemple, si je veux ajoutez une catégorie 'course de formule 1', j'ajoute un règle dans la section 'événement' de l'xml comme suit:
 ```xml	
 	<item>jour férié<tag>out.action.rubric="jour férié"</tag></item>
 	<!-- REGLE AJOUTEE ICI !!! -->
@@ -281,7 +281,7 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 				- Sarah vous retourne ce qu'elle a comprit.
 					- Dites alors:
 						- **Oui c'est bon** OU **oui parfait**
-							- Sauvegarde l'evènement dans la base et termine la commande.
+							- Sauvegarde l'événement dans la base et termine la commande.
 						- **Non recommence**
 							- Vous pouvez recommencer à dicter un jour et heure de rappel si celui-çi n'est pas bon. 
 						- **Annule**
