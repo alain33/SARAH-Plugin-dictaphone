@@ -289,7 +289,9 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 							- Interrompt la commande.
 
 ## Recherche d'événements
-Une date d'événement commence à minuit et se termine à 23:59.
+- Une date d'événement commence à minuit et se termine à 23:59.
+- Les événements définis pour un jour et sans heure peuvent être recherchés toute la journée.
+- Les événements définis avec une heure précise sont **par défaut** ignorés si l'heure est passée pour la journée courante.
 
 La recherche d'évenements se fait par une règle composée d'une ligne de chaque section/sous section:
 - **recherche**
@@ -325,7 +327,7 @@ La recherche d'évenements se fait par une règle composée d'une ligne de chaqu
 			
 **Important:** 
 - Les événements que vous avez ajoutez sont bien-sûr à ajouter dans les événements par défaut listés çi-dessus.
-- De même, vous pouvez très facilement ajouter des périodes de recherche dans les sections **"dans X jours"** et **"X prochain jours"** dans le fichier dictaphone.xml.
+- De même, vous pouvez très facilement ajouter des périodes de recherche dans les sections **"dans X jours"** et **"X prochain jours"** du fichier dictaphone.xml.
 			
 Après le déclenchement de la règle, Sarah vous dit:
 - **Je regarde...**		
@@ -336,14 +338,56 @@ Après le déclenchement de la règle, Sarah vous dit:
 	- Si il n'y a aucun événements		
 		- Sarah dit: **Il n'y a aucun rendez-vous aujourd'hui**
 
-**Une bonne astuce !!**
+### Une bonne astuce
 - Pour avoir des phrases correctes, enregistrez vos événements en pensant que Sarah vous les dira toujours en commençant par:
 	- **il y a...**
 - Par exemple:
 	- Pour une date d'anniversaire, je dirais **l'anniversaire de Pierre** à l'enregistrement, ce qui donnera par Sarah **Aujourd'hui il y a l'anniversaire de Pierre**
 	- Pour un rendez-vous, je dirais **La réparation de la voiture**
-		
+
+### Les tags de recherche
+#### Pour ajouter les événements passés
+Par défaut, les événements passés sont ignorés, pour que Sarah vous les dise, il faut ajouter sur la règle qui vous intéresse le tag suivant:
+	- data.lostEvents="true"
+
+Ce qui donne dans la règle (içi la règle "recherche"):
+```xml	
+<item>recherche<tag>data.lostEvents="true";out.action.command="findEvent";out.action.lazy="LazyStart";out.action.sendType="SpeechOnly";out.action._attributes.tts="Je regarde..."</tag></item>
+```	
+
+#### Les valeurs du tag **sendType**
+Ce tag dans chaque règle associée à la recherche d'événements dans le fichier dictaphone.xml défini la façon dont Sarah vous liste les événements.
+- **out.action.sendType="SpeechOnly"**
+	- Sarah énonce les événements uniquement.
+- **out.action.sendType="Speech-Push"**
+	- Sarah énonce les événements et envoie une notification (SMS ou pushOver).
+- **out.action.sendType="PushOnly"**
+	- Sarah envoie une notification (SMS ou pushOver) uniquement.
 			
+#### Les valeurs spéciales du tag **sendType**			
+Ces valeurs sont utilisées pour un appel avec un 'SARAH.call' depuis un autre plugin ou le plugin `scenariz` dans un scénario.
+- **out.action.sendType="Trigger"**			
+	- Sarah énonce les événements uniquement.
+- **out.action.sendType="Trigger-Push"**		
+	- Sarah énonce les événements et envoie une notification (SMS ou pushOver).
+
+#### Le tag de genre
+Défini le genre masculin ou féminin de la rubrique pour le message:
+- **Aucun** rendez-vous pour...
+- **Aucune** fête pour...		
+
+- out.action.genre="F"
+	- Défini le genre féminin.
+- out.action.genre="M"
+	- Défini le genre masculin.
+	- Par défaut si le tag n'est pas mis.
+
+Ce tag est a placer sur la règle de la rubrique dans le fichier dictaphone.xml. Par exemple, la règle de rubrique "Fête" est du genre féminin, ce qui donne:
+```xml	
+<item>fête<tag>out.action.rubric="fête";out.action.genre="F"</tag></item>
+```	
+	
+	
 ## Sauvegarder un mémo
 La création d'un mémo se fait par une règle composée:
 - **enregistre**
