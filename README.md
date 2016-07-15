@@ -270,10 +270,10 @@ Par exemple, si je veux ajoutez une catégorie 'course de formule 1', j'ajoute u
 ```	
 
 Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
-- Je t'écoute pour un rendez-vous...
+- **Je t'écoute pour un rendez-vous...**
 	- Attendez 1 ou 2 secondes pour l'initialisation de l'action puis dites votre rendez-vous.
 	- Par ex: **La réparation de la voiture**
-		- **A noter** que vous pouvez dire "Annule Sarah" pour intérrompre la commande.
+		- **A noter** que vous pouvez dire **Annule Sarah** pour intérrompre la commande.
 		- Sarah vous retourne ce qu'elle a comprit:
 		- **La réparation de la voiture ? d'accord et pour quand tu veux ca ?**
 			- Déclenche le mode [lazydays.xml](#lazydays.xml)
@@ -296,11 +296,11 @@ La création d'un mémo se fait par une règle composée:
 		- enregistrement
 		
 Après le déclenchement de la règle, Sarah vous dit:
-- Je t'écoute pour un mémo...
+- **Je t'écoute pour un mémo...**
 	- Attendez 1 ou 2 secondes pour l'initialisation de l'action puis dites votre mémo.
 	- Vous disposez du délais maximum de la propriété [timeRecord](#timeRecord) pour enregistrer le mémo et il est automatiquement terminé après le silence du paramètre de [sox](#params).
 		- Si le paramètre [setCategory](#setCategory) est à **true**:
-		- Sarah vous demande: ** Tu veux définir une catégorie ?**
+		- Sarah vous demande: **Tu veux définir une catégorie ?**
 			- Dites alors:
 				- **Oui s'il te plait**
 					- Déclenche le mode [lazyrubric.xml](#lazyrubric.xml)
@@ -321,7 +321,7 @@ Après le déclenchement de la règle, Sarah vous dit:
 				- **annule**
 					- Interrompt la commande.
 						
-##### Etape suivante				
+### Etape suivante				
 Etape suivante de création de mémo après l'enregistrement du mémo et (optionnelle) la définition d'une catégorie.
 	
 L'étape suivante est la possibilité de créer une date de rappel pour le mémo.
