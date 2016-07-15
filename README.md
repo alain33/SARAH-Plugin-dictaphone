@@ -13,8 +13,8 @@ Dictaphone est:
 	- Anniversaires, fêtes.
 	- Jours fériés, dates de changement de saisons.
 	- Calendrier de championnats, etc...
-	- Et tous les événements que vous pouvez imaginer.
-	- Fourni avec tous les jours fériés pour 2016, 2017 et 2018
+	- Et tous les événements que vous pouvez imaginer, par exemple vous rappeler un programme TV, pourquoi pas ?.
+	- Fourni avec tous les jours fériés et dates de changement de saisons pour 2016, 2017 et 2018
 - Un dictaphone.
 	- Enregistreur vocale de mémos.
 - Rubriques de classements d'événements et de mémos totalement configurables sans développement.
@@ -248,16 +248,16 @@ Pour créer un autre type d'envoi:
 Il existe déjà un certain nombre de catégories d'événements dans le fichier dictaphone.xml.
 
 La création d'un événement se fait par une règle composée:
-- sauvegarde
-- rappelle-moi
-	- un 
-	- une
-		- évenements
+- **sauvegarde**
+- **rappelle-moi**
+	- **un** 
+	- **une**
+		- **évenements**
 			- Catégorie par défaut définie dans la propriété [defaultcategory](#eventdefaultcategory-vstring)
-		- rendez-vous
-		- anniversaire
-		- fête
-		- jour férié
+		- **rendez-vous**
+		- **anniversaire**
+		- **fête**
+		- **jour férié**
 
 **Important:**
 Retrouvez les catégories d'événements dans le fichier dictaphone.xml et ajoutez les votres à la suite. 
@@ -280,7 +280,7 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 					- Sarah vous retourne ce qu'elle a comprit.
 						- Dites alors:
 						- **qu'est ce que je peux dire ?**
-							- Sarah énumére tous les choix que vous avez pour ce dialogue et le reprend.
+							- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
 						- **Oui c'est bon** OU **oui parfait**
 							- Sauvegarde l'événement dans la base et termine la commande.
 						- **Non recommence**
@@ -289,17 +289,68 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 							- Interrompt la commande.
 
 ## Recherche d'événements
+Une date d'événement commence à minuit et se termine à 23:59.
 
+La recherche d'évenements se fait par une règle composée d'une ligne de chaque section/sous section:
+- **recherche**
+- **dis-moi**
+- **j'ai**
+- **il y a**
+	- **un**
+	- **une**
+	- **des**
+	- **les**
+	- **mes**
+		- **évenements**
+		- **rendez-vous**
+		- **anniversaire**
+		- **fête**
+		- **jour férié**
+			- **pour**
+			- **d'**
+			- **de**
+			- **des**
+			- **dans**
+				- **les**
+					- **aujourd'hui**
+					- **demain**
+					- **après demain**
+					- **dans 3 jours**
+					- **dans 4 jours**
+					- **3 prochain jours**
+					- **5 prochain jours**
+					- **cette semaine**
+					- **la semaine prochaine**
+					- **ce mois-ci**
+			
+**Important:** 
+- Les événements que vous avez ajoutez sont bien-sûr à ajouter dans les événements par défaut listés çi-dessus.
+- De même, vous pouvez très facilement ajouter des périodes de recherche dans les sections **"dans X jours"** et **"X prochain jours"** dans le fichier dictaphone.xml.
+			
+Après le déclenchement de la règle, Sarah vous dit:
+- **Je regarde...**		
+	- Si il y a des événements (par ex: des rendez-vous si vous avez dit: **j'ai des rendez-vous pour aujourd'hui**)		
+		- Sarah dit: **J'ai trouvé X rendez-vous**
+			- **Aujourd'hui il y a la réparation de la voiture**
+			- **A 21h30 il y a le film à la télé**
+	- Si il n'y a aucun événements		
+		- Sarah dit: **Il n'y a aucun rendez-vous aujourd'hui**
 
-
-							
+**Une bonne astuce !!**
+- Pour avoir des phrases correctes, enregistrez vos événements en pensant que Sarah vous les dira toujours en commençant par:
+	- **il y a...**
+- Par exemple:
+	- Pour une date d'anniversaire, je dirais **l'anniversaire de Pierre** à l'enregistrement, ce qui donnera par Sarah **Aujourd'hui il y a l'anniversaire de Pierre**
+	- Pour un rendez-vous, je dirais **La réparation de la voiture**
+		
+			
 ## Sauvegarder un mémo
 La création d'un mémo se fait par une règle composée:
-- enregistre
-- prend
-	- un 
-		- mémo
-		- enregistrement
+- **enregistre**
+- **prend**
+	- **un** 
+		- **mémo**
+		- **enregistrement**
 		
 Après le déclenchement de la règle, Sarah vous dit:
 - **Je t'écoute pour un mémo...**
@@ -309,7 +360,7 @@ Après le déclenchement de la règle, Sarah vous dit:
 			- Sarah vous demande: **Tu veux définir une catégorie ?**
 				- Dites alors:
 				- **qu'est ce que je peux dire ?**
-					- Sarah énumére tous les choix que vous avez pour ce dialogue et le reprend.
+					- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
 				- **Oui s'il te plait**
 					- Déclenche le mode [lazyrubric.xml](#lazyrubric.xml)
 					- Sarah vous dit : **Je t'écoute...**
@@ -317,7 +368,7 @@ Après le déclenchement de la règle, Sarah vous dit:
 							- Sarah vous retourne ce qu'elle a comprit: **Catégorie Maison ?**.
 								- Dites alors:
 								- **qu'est ce que je peux dire ?**
-									- Sarah énumére tous les choix que vous avez pour ce dialogue et le reprend.
+									- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
 								- **Oui c'est bon**
 									- Prend en compte la catégorie et passe à [l'étape suivante](#etape-suivante).
 								- **Non recommence**
@@ -346,14 +397,14 @@ L'étape suivante est la possibilité de créer une date de rappel pour le mémo
 	- Sarah vous demande: **Tu veux définir un rappel ?**
 		- Dites alors:
 			- **qu'est ce que je peux dire ?**
-				- Sarah énumére tous les choix que vous avez pour ce dialogue et le reprend.
+				- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
 			- **Oui s'il te plait**
 				- Déclenche le mode [lazydays.xml](#lazydays.xml)
 				- Dites **en articulant et distinctement** le jour et/ou le mois et/ou l'année et/ou l'heure et les minutes
 					- Sarah vous retourne ce qu'elle a comprit.
 						- Dites alors:
 						- **qu'est ce que je peux dire ?**
-							- Sarah énumére tous les choix que vous avez pour ce dialogue et le reprend.
+							- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
 						- **Oui c'est bon** OU **oui parfait**
 							- Sauvegarde le mémo dans la base et termine la commande.
 						- **Non recommence**
@@ -362,7 +413,7 @@ L'étape suivante est la possibilité de créer une date de rappel pour le mémo
 							- Interrompt la commande.
 			- **Non c'est bon** OU **non merci**
 				- Sauvegarde le mémo dans la base et termine la commande.
-			- **annule**
+			- **Annule**
 				- Interrompt la commande.
 - Si le paramètre [setRappel](#memosetsetrappel-vboolean) est à **false**:
 	- Sauvegarde le mémo dans la base et termine la commande.
