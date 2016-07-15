@@ -17,7 +17,7 @@ Dictaphone est:
 	- Fourni avec tous les jours fériés pour 2016, 2017 et 2018
 - Un dictaphone.
 	- Enregistreur vocale de mémos.
-- Rubriques de classements des événements et mémos totalement configurables sans développement.
+- Rubriques de classements d'événements et de mémos totalement configurables sans développement.
 - Recherche des événements et mémos pour:
 	- Le jour même, le lendemain, le sur-lendemain, un nombre de jours spécifiques.
 	- Entre aujourd'hui et un nombre de jours.
@@ -29,9 +29,9 @@ Dictaphone est:
 - Permet d'envoyer les événements par SMS (free) ou Pushover.
 	- Pour n'importe quelle plage de recherche.
 	- Possibilité d'ajouter facilement par développement un autre type d'envois.
-- Associé au plugin `scenariz`, il vous permet de programmer la recherche d'événements:
-	- Créez ou ajoutez à votre réveil tous les événements dont vous voulez être averti pour le jour même, pour la semaine, etc...
-	- Ou envoyez les événements sur votre smartphone.
+- Associé au plugin `scenariz` ou à tout autre plugin par appel de trigger, il vous permet de programmer la recherche d'événements:
+	- Par exemple, créez ou ajoutez à votre réveil tous les événements dont vous voulez être averti pour le jour même, pour la semaine, etc...
+	- Ou encore, envoyez les événements sur votre smartphone.
 
 ## Table des matières
 - [Compatibilité](#compatibilité)	
@@ -205,17 +205,13 @@ Défini à 0.8 par défaut.
 ### Memo
 #### Memo#setRappel (v:Boolean)
 Active l'enregistrement d'un jour et d'une heure pour les mémos.
-
-**true**: Donne la posibilité de définir un jour et une heure à l'enregistrement pour des mémos.
-
-**false**: Aucun jour et heure pour les mémos.
+- **true**: Donne la posibilité de définir un jour et une heure à l'enregistrement pour des mémos.
+- **false**: Aucun jour et heure pour les mémos.
 
 #### Memo#setCategory (v:Boolean)
 Active l'enregistrement d'une catégorie pour les mémos.
-
-**true**: Donne la posibilité de définir une catégorie à l'enregistrement pour des mémos.
-
-**false**: Aucune catégorie spécifique pour le mémo, par défaut classé dans la catégorie définie dans la propriété 'defaultCategory'.
+- **true**: Donne la posibilité de définir une catégorie à l'enregistrement pour des mémos.
+- **false**: Aucune catégorie spécifique pour le mémo, par défaut classé dans la catégorie définie dans la propriété 'defaultCategory'.
 
 #### Memo#defaultCategory (v:String)
 Catégorie par défaut si la propriété 'setCategory' est **false**.
@@ -230,7 +226,9 @@ Type de notification pour un envois SMS ou pushover.
 
 Par défaut, 2 types sont possibles:
 - pushover
-- free
+	- Interface très sympa et en couleur.
+- SMS free
+	- Format SMS, l'intérêt est que des liens sont automatiquement créés sur les dates et heures pour créer un rappel dans l'application "Calendrier" du smartphone.
 
 Le type défini dans cette propriété est le nom du fichier js associé dans le répertoire #dictaphone#/lib/notify qui envoie la notification. Par exemple, 'pushover' est le nom du fichier js 'pushover.js' dans le répertoire.
 
@@ -311,8 +309,8 @@ Après le déclenchement de la règle, Sarah vous dit:
 				- **Oui s'il te plait**
 					- Déclenche le mode [lazyrubric.xml](#lazyrubric.xml)
 					- Sarah vous dit : **Je t'écoute...**
-						- Dites la catégorie pour le mémo (par ex " Catégorie Maison").
-							- Sarah vous retourne ce qu'elle a comprit.
+						- Dites la catégorie pour le mémo (par ex "Catégorie Maison").
+							- Sarah vous retourne ce qu'elle a comprit: **Catégorie Maison ?**.
 							- Dites alors:
 								- **Oui c'est bon**
 									- Prend en compte la catégorie et passe à [l'étape suivante](#etape-suivante).
