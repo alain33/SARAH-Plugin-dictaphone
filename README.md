@@ -344,7 +344,11 @@ La recherche d'évenements est une règle composée d'une ligne de chaque sectio
 **Important:** 
 - Les règles dites sans recherche dans le temps sont pour aujourd'hui par défaut.
 - Vous pouvez très facilement ajouter des périodes de recherche dans les sections **"dans X jours"** et **"X prochain jours"** du fichier dictaphone.xml.
-			
+	- Prenez exemple sur les règles déjà présentes, à savoir:
+		- Pour une date fixe, la valeur du tag est à définir avec un **=**
+		- Pour une date entre aujourd'hui et une période donnée, la valeur du tag est à définir avec un **<**
+			- **Attention**, au format xml, le caractère **<** s'écrit **&lt;**
+		
 Après le déclenchement de la règle, Sarah vous dit:
 - **Je regarde...**		
 	- Si il y a des événements (par ex: des rendez-vous si vous avez dit: **j'ai des rendez-vous pour aujourd'hui**)		
