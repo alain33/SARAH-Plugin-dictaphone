@@ -336,8 +336,7 @@ La recherche d'évenements est une règle composée d'une ligne de chaque sectio
 					
 **Important:** 
 - Les règles dites sans recherche dans le temps sont pour aujourd'hui par défaut.
-- Les événements que vous pouvez ajoutez sont bien-sûr à ajouter dans les événements par défaut listés çi-dessus.
-- De même, vous pouvez très facilement ajouter des périodes de recherche dans les sections **"dans X jours"** et **"X prochain jours"** du fichier dictaphone.xml.
+- Vous pouvez très facilement ajouter des périodes de recherche dans les sections **"dans X jours"** et **"X prochain jours"** du fichier dictaphone.xml.
 			
 Après le déclenchement de la règle, Sarah vous dit:
 - **Je regarde...**		
@@ -377,15 +376,12 @@ Ce tag dans chaque règle associée à la recherche d'événements dans le fichi
 #### Les valeurs spéciales du tag **sendType**			
 Ces valeurs sont utilisées pour un appel avec un 'SARAH.call' depuis un autre plugin ou le plugin `scenariz` dans un scénario.
 - **out.action.sendType="Trigger"**			
-	- Sarah énonce les événements uniquement.
+	- Sarah énonce les événements uniquement par un **tts callback**.
 - **out.action.sendType="Trigger-Push"**		
-	- Sarah énonce les événements et envoie une notification (SMS ou pushOver).
+	- Sarah énonce les événements par un **tts callback** et envoie une notification (SMS ou pushOver).
 
 #### Le tag de genre
-Défini le genre masculin ou féminin de la rubrique pour le message:
-- **Aucun** rendez-vous pour...
-- **Aucune** fête pour...		
-
+Défini le genre masculin ou féminin de la rubrique pour le message: **Aucun rendez-vous pour...** OU **Aucune fête pour...** 		
 - out.action.genre="F"
 	- Défini le genre féminin.
 - out.action.genre="M"
