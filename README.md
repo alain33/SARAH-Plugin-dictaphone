@@ -294,11 +294,6 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 
 							
 ## Sauvegarder un mémo
-**Important**:
-Il est très important de se rappeler que dans pratiquement tous les dialogues de askme, vous pouvez dire:
-- **qu'est ce que je peux dire ?**
-Sarah vous énumérera tous les choix que vous avez pour le dialogue courant et reprendra le dialogue.
-
 La création d'un mémo se fait par une règle composée:
 - enregistre
 - prend
@@ -371,8 +366,6 @@ L'étape suivante est la possibilité de créer une date de rappel pour le mémo
 				- Interrompt la commande.
 - Si le paramètre [setRappel](#memosetsetrappel-vboolean) est à **false**:
 	- Sauvegarde le mémo dans la base et termine la commande.
-
-
 
 
 	
