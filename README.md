@@ -36,13 +36,13 @@ on top of:
 ## Table des matières
 - [Compatibilité](#compatibilité)	
 - [Installation](#installation)	
-	- [Custom.ini](#custom.ini)
+	- [Custom.ini](#customini)
 	- [Sarah](#sarah.js)
 	- [Sox](#sox)
 - [Propriétés](#propriétés)	
 	- [Sox](#sox-1)
-	- [Mémo](#mémo)
-	- [événements](#event)
+	- [Memo](#memo)
+	- [Event](#event)
 - [Sauvegarder un événement](#sauvegarder-un-événement)
 - [Sauvegarder un mémo](#sauvegarder-un-mémo)
 - [Problèmes connus](#problèmes-connus)
@@ -201,7 +201,7 @@ Confidence pour la précision de traduction du message vocale en texte par Googl
 
 Défini à 0.8 par défaut.
 
-### Mémo
+### Memo
 #### Memo#setRappel (v:Boolean)
 Active l'enregistrement d'un jour et d'une heure pour les mémos.
 
@@ -327,23 +327,28 @@ Après le déclenchement de la règle, Sarah vous dit:
 Etape suivante de création de mémo après l'enregistrement du mémo et (optionnelle) la définition d'une catégorie.
 	
 L'étape suivante est la possibilité de créer une date de rappel pour le mémo.
-- Sarah vous demande: **Tu veux définir un rappel ?**
-	- Dites alors:
-		- **oui s'il te plait**
-			- Déclenche le mode [lazydays.xml](#lazydays.xml)
-			- Dites **en articulant et distinctement** le jour et/ou le mois et/ou l'année et/ou l'heure et les minutes
-				- Sarah vous retourne ce qu'elle a comprit.
-					- Dites alors:
-						- **Oui c'est bon** OU **oui parfait**
-							- Sauvegarde le mémo dans la base et termine la commande.
-						- **Non recommence**
-							- Vous pouvez recommencer à dicter un jour et heure de rappel si celui-çi n'est pas bon. 
-						- **Annule**
-							- Interrompt la commande.
-		- **non c'est bon** OU **non merci**
-			- Sauvegarde le mémo dans la base et termine la commande.
-		- **annule**
-			- Interrompt la commande.
+- Si le paramètre [setRappel](#memosetsetrappel-vboolean) est à **true**:
+	- Sarah vous demande: **Tu veux définir un rappel ?**
+		- Dites alors:
+			- **oui s'il te plait**
+				- Déclenche le mode [lazydays.xml](#lazydays.xml)
+				- Dites **en articulant et distinctement** le jour et/ou le mois et/ou l'année et/ou l'heure et les minutes
+					- Sarah vous retourne ce qu'elle a comprit.
+						- Dites alors:
+							- **Oui c'est bon** OU **oui parfait**
+								- Sauvegarde le mémo dans la base et termine la commande.
+							- **Non recommence**
+								- Vous pouvez recommencer à dicter un jour et heure de rappel si celui-çi n'est pas bon. 
+							- **Annule**
+								- Interrompt la commande.
+			- **non c'est bon** OU **non merci**
+				- Sauvegarde le mémo dans la base et termine la commande.
+			- **annule**
+				- Interrompt la commande.
+- Si le paramètre [setRappel](#memosetsetrappel-vboolean) est à **false**:
+	- Sauvegarde le mémo dans la base et termine la commande.
+
+
 
 
 	
