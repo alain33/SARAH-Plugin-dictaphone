@@ -45,6 +45,11 @@ Dictaphone est:
 	- [Event](#event)
 - [Sauvegarder un événement](#sauvegarder-un-événement)
 - [Recherche d'événements](#recherche-dévénements)
+	- [Une bonne astuce](#une-bonne-astuce)
+	- [Ajouter les événements passés](#ajouter-les-événements-passés)
+	- [Les valeurs du tag sendType](#les-valeurs-du-tag-sendtype)
+	- [Les valeurs spéciales du tag sendType](#les-valeurs-spéciales-du-tag-sendtype)
+	- [Le tag de genre](#le tag de genre)
 - [Sauvegarder un mémo](#sauvegarder-un-mémo)
 - [Problèmes et solutions](#problèmes-et-solutions)
 - [Versions](#versions)
@@ -328,10 +333,12 @@ La recherche d'évenements est une règle composée d'une ligne de chaque sectio
 **Par exemple:**
 ```text
 	- j'ai des rendez-vous
-	- j'ai des rendez-vous pour aujourd'hui
+	- il y a des rendez-vous pour aujourd'hui
 	- j'ai des évenements après demain
 	- dis-moi les anniversaire pour les 5 prochain jours
 	- recherche les jour férié de ce mois-ci
+	- dis-moi mes courses de championnat pour ce mois-ci
+		--->> // Si vous avez ajoutez "courses de championnat" comme événement...
 ```
 					
 **Important:** 
