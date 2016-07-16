@@ -284,7 +284,7 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 		- **A noter** que vous pouvez dire **Annule Sarah** pour intérrompre la commande.
 			- Sarah vous retourne ce qu'elle a comprit:
 			- **La réparation de la voiture ? d'accord et pour quand tu veux ca ?**
-				- Déclenche le mode [lazydays.xml](#lazydays.xml)
+				- Déclenche le mode [lazydays.xml](#définir-une-date)
 				- Dites **en articulant et distinctement** le jour et/ou le mois et/ou l'année et/ou l'heure et les minutes
 					- Sarah vous retourne ce qu'elle a comprit.
 						- Dites alors:
@@ -432,7 +432,7 @@ Après le déclenchement de la règle, Sarah vous dit:
 				- **qu'est ce que je peux dire ?**
 					- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
 				- **Oui s'il te plait**
-					- Déclenche le mode [lazyrubric.xml](#lazyrubricxml)
+					- Déclenche le mode [lazyrubric.xml](#les rubriques de mémo)
 					- Sarah vous dit : **Je t'écoute...**
 						- Dites la catégorie pour le mémo (par ex "Catégorie Maison").
 						- Vous pouvez dire aussi **Annule Sarah** pour arreter la commande.
@@ -465,7 +465,7 @@ L'étape suivante est la possibilité de créer une date de rappel pour le mémo
 			- **qu'est ce que je peux dire ?**
 				- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
 			- **Oui s'il te plait**
-				- Déclenche le mode [lazydays.xml](#lazydaysxml)
+				- Déclenche le mode [lazydays.xml](#définir-une-date)
 				- Dites **en articulant et distinctement** le jour et/ou le mois et/ou l'année et/ou l'heure et les minutes
 					- Sarah vous retourne ce qu'elle a comprit.
 						- Dites alors:
