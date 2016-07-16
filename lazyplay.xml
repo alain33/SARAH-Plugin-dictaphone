@@ -1,0 +1,23 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice"  root="rulelazyplay" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+
+  <rule id="rulelazyplay" scope="public">
+    <tag>out.action=new Object()</tag>
+	
+	<item  repeat="0-1">
+		<item>passe au</item>
+	</item>
+	
+	<one-of>
+		<item>Annule Sarah<tag>out.action.lazy="LazyStop";out.action.command="stopplay";out.action._attributes.tts="d'accord"</tag></item>
+
+		<item>suivant<tag>out.action.command="nextplay"</tag></item>
+		<item>supprime le<tag>out.action.command="delplay"</tag></item>
+	</one-of>
+	
+	<item  repeat="0-1">
+		<item>mémo</item>
+	</item>
+	
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/dictaphone"</tag>
+  </rule>
+</grammar>

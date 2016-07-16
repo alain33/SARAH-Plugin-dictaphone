@@ -1,0 +1,32 @@
+{
+  "modules" : { 
+    "dictaphone" : {
+		"description": "Calendrier d'événements et prise de mémo",
+		"version": "1.0.0",
+		"verbose" : true,
+		"sox" : {
+			"language" : "fr-FR",
+			"path" : "C:\\progra~1\\sox-14-4-2",
+			"params" : "sox -q -r 16000 -b 16 -t waveaudio 0 -t wav <FileName> silence 1 0 3% 1 0:05 3%",
+			"google_api" : "ICI API KEY",
+			"timeRecord" : 60,
+			"threashold" : 0.8
+		},
+		"Memo" : {
+			"setRappel" : true,
+			"setCategory" : true,
+			"defaultCategory" : "divers"
+		},
+		"Event" : {
+			"defaultCategory" : "divers"
+		},
+		"notification" : {
+			"sendType" : "free",
+			"pushoverUser" : "ICI PUSHOVER USER",
+			"pushoverToken" : "ICI PUSHOVER TOKEN",
+			"SMSuser" : "ICI SMS USER",
+			"SMStoken" : "ICI SMS TOKEN"
+		}
+    }
+  }
+}

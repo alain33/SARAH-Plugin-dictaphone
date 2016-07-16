@@ -1,0 +1,30 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice"  root="rulelazyrubric" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+
+  <rule id="rulelazyrubric" scope="public">
+    <tag>out.action=new Object()</tag>
+ 
+	<item  repeat="0-1">
+		<item>catégorie</item>
+	</item>
+	
+	<one-of>
+		<item>Annule Sarah<tag>out.action.rubric="nothing"</tag></item>
+		
+		<item>assurance<tag>out.action.rubric="assurance"</tag></item>
+		<item>divers<tag>out.action.rubric="divers"</tag></item>
+		<item>enfant<tag>out.action.rubric="enfant"</tag></item>
+		<item>facture<tag>out.action.rubric="facture"</tag></item>
+		<item>habillement<tag>out.action.rubric="habillement"</tag></item>
+		<item>maison<tag>out.action.rubric="maison"</tag></item>
+		<item>loisir<tag>out.action.rubric="loisir"</tag></item>
+		<item>ordinateur<tag>out.action.rubric="ordinateur"</tag></item>
+		<item>médecin<tag>out.action.rubric="médecin"</tag></item>
+		<item>travail<tag>out.action.rubric="travail"</tag></item>
+		<item>voiture<tag>out.action.rubric="voiture"</tag></item>
+		<item>vacance<tag>out.action.rubric="vacance"</tag></item>
+	</one-of>
+	
+	<tag>out.action.command="setRubric"</tag>
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/dictaphone"</tag>
+  </rule>
+</grammar>

@@ -1,0 +1,100 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice"  root="ruledictaphone" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	
+  <rule id="ruledictaphone">
+    <tag>out.action=new Object()</tag>
+	<item>Sarah</item> 
+	<item  repeat="0-1">
+		<one-of>
+			<!-- Sauvegarde d'évenements-->
+			<item>sauvegarde<tag>out.action.command="recordEvent";out.action.lazy="LazyStart"</tag></item>
+			<item>rappelle-moi<tag>out.action.command="recordEvent";out.action.lazy="LazyStart"</tag></item>
+			
+			<!-- Enregistrement d'un mémo-->
+			<item>enregistre<tag>out.action.command="recordMemo";out.action.lazy="LazyStart"</tag></item>
+			<item>prend<tag>out.action.command="recordMemo";out.action.lazy="LazyStart"</tag></item>
+			
+			<!-- Recherche d'évenements-->
+			<item>recherche<tag>out.action.command="findEvent";out.action.lazy="LazyStart";out.action.sendType="SpeechOnly";out.action._attributes.tts="Je regarde..."</tag></item>
+			<item>recherche et envois moi<tag>out.action.command="findEvent";out.action.lazy="LazyStart";out.action.sendType="Speech-Push";out.action._attributes.tts="Je regarde..."</tag></item>
+			<item>Dis-moi<tag>out.action.command="findEvent";out.action.lazy="LazyStart";out.action.sendType="SpeechOnly";out.action._attributes.tts="Je regarde..."</tag></item>
+			<item>j'ai<tag>out.action.command="findEvent";out.action.lazy="LazyStart";out.action.sendType="SpeechOnly";out.action._attributes.tts="Je regarde..."</tag></item>
+			<item>il y a<tag>out.action.command="findEvent";out.action.lazy="LazyStart";out.action.sendType="SpeechOnly";out.action._attributes.tts="Je regarde..."</tag></item>
+			<!-- Envoi SMS ou PushOver seul-->
+			<item>Envois-moi<tag>out.action.command="findEvent";out.action.sendType="PushOnly";out.action._attributes.tts="Je t'envois ca..."</tag></item>
+		
+			<!-- Recherche de mémos-->
+			<item>fais-moi écouter<tag>out.action.command="findMemo";out.action.lazy="LazyStart";out.action._attributes.tts="Je recherche..."</tag></item>
+		</one-of>
+	</item>
+	
+	<item  repeat="0-1">
+		<one-of>
+			<item>un</item>
+			<item>une</item>
+			<item>des</item>
+			<item>les</item>
+			<item>mes</item>
+		</one-of>
+	</item>
+	 
+	<one-of>	
+		<!-- Evénements-->
+		<item>évenements</item>  <!-- Par défaut tous les types  d'evénements-->
+		<item>rendez-vous<tag>out.action.rubric="rendez-vous"</tag></item>
+		<item>anniversaire<tag>out.action.rubric="anniversaire"</tag></item>
+		<item>fête<tag>out.action.rubric="fête";out.action.genre="F"</tag></item>
+		<item>jour férié<tag>out.action.rubric="jour férié"</tag></item>
+			
+		<!-- Enregistrement Mémo ou lecture Mémo avec tous les types de mémos-->
+		<item>mémo</item> 
+		<item>enregistrement</item> 
+		
+		<!-- Lecture Mémo uniquement, possible d'ajouter la rubrique directement dans la règle-->
+		<!-- Pour l'enregistrement, la question est posée ensuite -->
+		<item>mémo travail<tag>out.action.rubric="travail"</tag></item>
+		<item>enregistrement travail<tag>out.action.rubric="travail"</tag></item>
+		<item>mémo voiture<tag>out.action.rubric="voiture"</tag></item>
+		<item>enregistrement voiture<tag>out.action.rubric="voiture"</tag></item>
+		<item>mémo maison<tag>out.action.rubric="maison"</tag></item>
+		<item>enregistrement maison<tag>out.action.rubric="maison"</tag></item>
+	</one-of>
+
+	<item  repeat="0-1">
+		<one-of>
+			<item>pour</item>
+			<item>d'</item>
+			<item>de</item>
+			<item>des</item>
+			<item>dans</item>
+		</one-of>
+	</item>
+	
+	<item  repeat="0-1">
+		<one-of>
+			<item>les</item>
+		</one-of>
+	</item>
+	
+	<item  repeat="0-1">
+		<one-of>
+			<!-- Critères date pour la lecture d'évenements et de mémos  "&lt; = <" -->
+			<item>aujourd'hui<tag>out.action.date="=0"</tag></item>
+			<item>demain<tag>out.action.date="=1"</tag></item>
+			<item>après demain<tag>out.action.date="=2"</tag></item>
+			<item>dans 3 jours<tag>out.action.date="=3"</tag></item>
+			<item>dans 4 jours<tag>out.action.date="=4"</tag></item>
+			<item>3 prochain jours<tag>out.action.date="&lt;3"</tag></item>
+			<item>5 prochain jours<tag>out.action.date="&lt;5"</tag></item>
+			<item>cette semaine<tag>out.action.date="thisWeek"</tag></item>
+			<item>la semaine prochaine<tag>out.action.date="nextWeek"</tag></item>
+			<item>ce mois-ci<tag>out.action.date="thisMonth"</tag></item>
+		</one-of>
+	</item>
+	
+	<item  repeat="0-1">
+		<item>s'il te plait</item>
+	</item>
+
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/dictaphone"</tag>
+  </rule>
+</grammar>

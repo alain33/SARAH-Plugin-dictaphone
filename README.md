@@ -54,6 +54,7 @@ Dictaphone est:
 - [Recherche de mémo](#recherche-de-mémo)
 - [Définir une date](#définir-une-date)
 - [Les rubriques de mémo](#les-rubriques-de-mémo)
+- [Exemple de scenario avec scenariz](#exemple-de-scenario-avec-scenariz)
 - [Problèmes et solutions](#problèmes-et-solutions)
 - [Versions](#versions)
 	
@@ -547,9 +548,7 @@ Après le déclenchement de la règle, Sarah vous dit:
 								- Dites alors:
 								- **qu'est ce que je peux dire ?**
 									- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
-								- **Oui s\'il te plait** OU **Oui c\'est bon**
-									- Supprime le mémo 
-								- **Oui s\'il te plait** OU **Oui c\'est bon**
+								- **Oui s'il te plait** OU **Oui c'est bon**
 									- Supprime le mémo 
 								- **Non annule** OU **annule**
 									- Reprend la lecture du mémo
@@ -669,7 +668,28 @@ Par exemple, pour une règle 'perso' et une catégorie 'personnel' :
 ```
 
 **Important**: Pensez à ajouter une règle dans le dictaphone.xml pour la recherche de cette catégorie.
-					
+		
+## Exemple de scenario avec scenariz
+Exemple d'un scenario de réveil.
+- Client SARAH1
+- Démarre à 07:30 la semaine de travail.
+- Scénario:
+	- L'heure avec une phrase de début.
+	- Ennonce les rendez-vous pour la journée.
+	- Ennonce le jours férié
+	- Ennonce les anniversaire pour les 5 prochains jours
+	- Ennonce la fête du jour
+
+Ce scénario est à copier/coller dans le scenariz.xml et à vocaliser pour être ajouté dans la base de données scenariz.
+	
+```xml	
+<item>Début du réveil<tag>out.action.command="ScenarizCron";out.action.clients="SARAH1";out.action.tempo="3000";out.action.order="1";out.action.program="Réveil";out.action.name="Phrase de début";out.action.plug="scenariz";out.action.start="07:30-1111100";out.action.key="command=setTime";out.action.ttsCron="Bonjour. Il est %s, il est l'heure de te réveiller."</tag></item>
+<item>mes rendez-vous<tag>out.action.command="ScenarizCron";out.action.clients="SARAH1";out.action.tempo="2000";out.action.order="2";out.action.program="Réveil";out.action.name="mes rendez-vous";out.action.plug="dictaphone";out.action.start="07:30-1111100";out.action.key="command=findEvent~sendType=Trigger~rubric=rendez-vous~date==0";out.action.ttsCron="Tu as %s"</tag></item>
+<item>les jour fériés<tag>out.action.command="ScenarizCron";out.action.clients="SARAH1";out.action.tempo="2000";out.action.order="3";out.action.program="Réveil";out.action.name="les jours fériés";out.action.plug="dictaphone";out.action.start="07:30-1111100";out.action.key="command=findEvent~sendType=Trigger~rubric=jour férié~date==0";out.action.ttsCron="Il y a %s"</tag></item>
+<item>les anniversaires<tag>out.action.command="ScenarizCron";out.action.clients="SARAH1";out.action.tempo="2000";out.action.order="4";out.action.program="Réveil";out.action.name="anniversaire";out.action.plug="dictaphone";out.action.start="07:30-1111100";out.action.key="command=findEvent~sendType=Trigger~rubric=anniversaire~date==0";out.action.ttsCron="Tu as %s"</tag></item>
+<item>les fêtes<tag>out.action.command="ScenarizCron";out.action.clients="SARAH1";out.action.tempo="2000";out.action.order="4";out.action.program="Réveil";out.action.name="anniversaire";out.action.plug="dictaphone";out.action.start="07:30-1111100";out.action.key="command=findEvent~sendType=Trigger~rubric=fête~date==0~genre=F";out.action.ttsCron="Tu as %s"</tag></item>
+``` 
+
 					
 ## Problèmes et solutions
 - Le niveau de confidence:
