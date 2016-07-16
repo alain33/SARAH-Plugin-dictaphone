@@ -677,7 +677,7 @@ Exemple d'un scenario de réveil.
 	- L'heure avec une phrase de début.
 	- Ennonce les rendez-vous pour la journée.
 	- Ennonce le jours férié
-	- Ennonce les anniversaire pour les 5 prochains jours
+	- Ennonce les anniversaires pour les 5 prochains jours
 	- Ennonce la fête du jour
 
 Ce scénario est à copier/coller dans le scenariz.xml et à vocaliser pour être ajouté dans la base de données scenariz.
