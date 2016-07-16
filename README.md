@@ -432,7 +432,7 @@ Après le déclenchement de la règle, Sarah vous dit:
 				- **qu'est ce que je peux dire ?**
 					- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
 				- **Oui s'il te plait**
-					- Déclenche le mode [lazyrubric.xml](#les rubriques de mémo)
+					- Déclenche le mode [lazyrubric.xml](#les-rubriques-de-mémo)
 					- Sarah vous dit : **Je t'écoute...**
 						- Dites la catégorie pour le mémo (par ex "Catégorie Maison").
 						- Vous pouvez dire aussi **Annule Sarah** pour arreter la commande.
