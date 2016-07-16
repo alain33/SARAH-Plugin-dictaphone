@@ -525,16 +525,17 @@ La recherche de mémo est une règle composée d'une ligne de chaque section/sou
 	- il y a des mémo pour aujourd'hui
 	- j'ai des mémo travail après demain
 	- dis-moi mes mémo maison pour les 5 prochain jours
+	- dis-moi mes mémo travail pour cette semaine
+	- dis-moi mes mémo perso pour la semaine prochaine
 	- recherche les mémo de ce mois-ci
-	- dis-moi mes mémo perso pour ce mois-ci
-		--->> // Si vous avez ajouté "mémo perso" comme mémo...
+	- dis-moi mes mémo perso pour ce mois-ci				--->> Si vous avez ajouté "mémo perso" comme mémo...
 ```         
 
 Après le déclenchement de la règle, Sarah vous dit:
 - **Je recherche...**		
 	- Si il y a des mémos	
 		- Sarah dit: **J'ai trouvé X mémo**
-			-**Boucle sur tous les mémos et les lit un par un**
+			- **Boucle sur tous les mémos et les lit un par un**
 				- **Mémo 1**
 					- Lecture du mémo
 						- Déclenche le mode **lazyplay.xml**
@@ -650,11 +651,11 @@ La définition d'une date est une règle composée d'une ligne de chaque section
 ```
 **Période de temps...**   
 ```text
-	- je veux ca tous les jours, tous les mois 						--> Défini tous les jours, tous les mois de cette année seulement.
+	- je veux ca tous les jours, tous les mois						--> Défini tous les jours, tous les mois de cette année seulement.
 	- programme pour tous les jours, tous les mois, tous les ans	--> Défini tous les jours, tous les mois, tous les ans.
 	- tous les jours, tous les mois, tous les ans à 15 heure 30		--> Idem avec l'heure.
-	- je veux ca tous les mois  									--> Défini le jour courant tous les mois.
-	- je veux ca tous les mois à 20h30 								--> Idem avec l'heure.
+	- je veux ca tous les mois										--> Défini le jour courant tous les mois.
+	- je veux ca tous les mois à 20h30								--> Idem avec l'heure.
 	- tous les ans													--> Défini le jour courant tous les ans.	
 	- tous les ans à 20h30 minutes									--> Idem avec l'heure.
 ```
