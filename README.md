@@ -51,6 +51,9 @@ Dictaphone est:
 	- [Les valeurs spéciales du tag sendType](#les-valeurs-spéciales-du-tag-sendtype)
 	- [Le tag de genre](#le tag de genre)
 - [Sauvegarder un mémo](#sauvegarder-un-mémo)
+- [Recherche de mémo](#recherche-de-mémo)
+- [Définir une date](#définir-une-date)
+- [Les rubriques de mémo](#les-rubriques-de-mémo)
 - [Problèmes et solutions](#problèmes-et-solutions)
 - [Versions](#versions)
 	
@@ -295,8 +298,8 @@ Après le déclenchement de la règle (par ex, un rendez-vous), Sarah vous dit:
 
 ## Recherche d'événements
 - Une date d'événement commence à minuit et se termine à 23:59.
-- Les événements définis pour un jour et sans heure peuvent être recherchés toute la journée.
-- Les événements définis avec une heure précise sont **par défaut** ignorés si l'heure est passée pour la journée courante.
+- Les événements définis pour un jour et sans heure peuvent être recherchés pour toute la journée.
+- Les événements définis avec une heure précise sont **par défaut** ignorés si l'heure est passée.
 
 La recherche d'évenements est une règle composée d'une ligne de chaque section/sous section çi-dessous:
 - **recherche**
@@ -338,8 +341,8 @@ La recherche d'évenements est une règle composée d'une ligne de chaque sectio
 	- dis-moi les anniversaire pour les 5 prochain jours
 	- recherche les jour férié de ce mois-ci
 	- dis-moi mes courses de championnat pour ce mois-ci
-		--->> // Si vous avez ajoutez "courses de championnat" comme événement...
-```
+		--->> // Si vous avez ajouté "courses de championnat" comme événement...
+```           
 					
 **Important:** 
 - Les règles dites sans recherche dans le temps sont pour aujourd'hui par défaut.
@@ -428,9 +431,10 @@ Après le déclenchement de la règle, Sarah vous dit:
 				- **qu'est ce que je peux dire ?**
 					- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
 				- **Oui s'il te plait**
-					- Déclenche le mode [lazyrubric.xml](#lazyrubric.xml)
+					- Déclenche le mode [lazyrubric.xml](#lazyrubricxml)
 					- Sarah vous dit : **Je t'écoute...**
 						- Dites la catégorie pour le mémo (par ex "Catégorie Maison").
+						- Vous pouvez dire aussi **Annule Sarah** pour arreter la commande.
 							- Sarah vous retourne ce qu'elle a comprit: **Catégorie Maison ?**.
 								- Dites alors:
 								- **qu'est ce que je peux dire ?**
@@ -449,11 +453,6 @@ Après le déclenchement de la règle, Sarah vous dit:
 					- Interrompt la commande.
 		- Si le paramètre [setCategory](#memosetcategory-vboolean) est à **false**:
 			- Passe à [l'étape suivante](#etape-suivante), la catégorie est par défaut la propriété [defaultCategory](#memodefaultcategory-vstring)
-
-
-			
-		
-		
 		
 ### Etape suivante				
 Etape suivante de création de mémo après l'enregistrement du mémo et (optionnelle) la définition d'une catégorie.
@@ -465,7 +464,7 @@ L'étape suivante est la possibilité de créer une date de rappel pour le mémo
 			- **qu'est ce que je peux dire ?**
 				- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
 			- **Oui s'il te plait**
-				- Déclenche le mode [lazydays.xml](#lazydays.xml)
+				- Déclenche le mode [lazydays.xml](#lazydaysxml)
 				- Dites **en articulant et distinctement** le jour et/ou le mois et/ou l'année et/ou l'heure et les minutes
 					- Sarah vous retourne ce qu'elle a comprit.
 						- Dites alors:
@@ -482,14 +481,198 @@ L'étape suivante est la possibilité de créer une date de rappel pour le mémo
 			- **Annule**
 				- Interrompt la commande.
 - Si le paramètre [setRappel](#memosetsetrappel-vboolean) est à **false**:
-	- Sauvegarde le mémo dans la base et termine la commande.
+	- Sauvegarde le mémo dans la base et termine la commande.s 
 
+## Recherche de mémo
+- Une date de mémo commence à minuit et se termine à 23:59.
+- Les mémo définis sans date sont toujours dans le résultat de recherche.           
+- Les mémo définis pour un jour et sans heure peuvent être recherchés pour toute la journée.
+- Les mémo définis avec une heure précise sont ignorés si l'heure est passée.
 
+La recherche de mémo est une règle composée d'une ligne de chaque section/sous section çi-dessous:
+- **fais-moi écouter**
+	- **un**
+	- **une**
+	- **des**
+	- **les**
+	- **mes**
+		- **mémo**
+		- **enregistrements**
+		- **mémo travail**
+		- **enregistrements travail**
+		- **mémo maison**
+		- **enregistrements maison**
+			- **pour**
+			- **d'**
+			- **de**
+			- **des**
+			- **dans**
+				- **les**
+					- **aujourd'hui**
+					- **demain**
+					- **après demain**
+					- **dans 3 jours**
+					- **dans 4 jours**
+					- **3 prochain jours**
+					- **5 prochain jours**
+					- **cette semaine**
+					- **la semaine prochaine**
+					- **ce mois-ci**
+
+**Par exemple:**
+```text
+	- j'ai des mémo
+	- il y a des mémo pour aujourd'hui
+	- j'ai des mémo travail après demain
+	- dis-moi mes mémo maison pour les 5 prochain jours
+	- recherche les mémo de ce mois-ci
+	- dis-moi mes mémo perso pour ce mois-ci
+		--->> // Si vous avez ajouté "mémo perso" comme mémo...
+```         
+
+Après le déclenchement de la règle, Sarah vous dit:
+- **Je recherche...**		
+	- Si il y a des mémos	
+		- Sarah dit: **J'ai trouvé X mémo**
+			-**Boucle sur tous les mémos et les lit un par un**
+				- **Mémo 1**
+					- Lecture du mémo
+						- Déclenche le mode **lazyplay.xml**
+						- Dites alors:
+						- **Suivant** OU **Passe au suivant**
+							- Arrete la lecture et passe au mémo suivant
+						- **Supprime le** OU **Supprime le mémo**
+							- Sarah demande **tu veux vraiment le supprimer ?**
+								- Dites alors:
+								- **qu'est ce que je peux dire ?**
+									- Sarah énumère tous les choix que vous avez pour ce dialogue et le reprend.
+								- **Oui s\'il te plait** OU **Oui c\'est bon**
+									- Supprime le mémo 
+								- **Oui s\'il te plait** OU **Oui c\'est bon**
+									- Supprime le mémo 
+								- **Non annule** OU **annule**
+									- Reprend la lecture du mémo
+						- **Annule Sarah**
+							- Stop la lecture des mémos	
+				- **Mémo 2**
+				- **etc...**
+	- Si il n'y a aucun mémos		
+		- Sarah dit: **Il n'y a aucun mémos pour aujourd'hui**	
+
+		
+## Définir une date		
+Le fichier lazydays.xml permet de définir une date de rappel pour les événements et les mémos.
+
+La définition d'une date est une règle composée d'une ligne de chaque section/sous section çi-dessous pour former une date et une heure d'une façon naturelle:
+- **je veux ca**
+- **programme**
+	- **pour**
+		- **le**
+			- **aujourd'hui**
+			- **demain**
+			- **après demain**
+			- **dans une semaine**
+			- **dans deux semaine**
+			- **Lundi**
+			- **......**
+			- **Dimanche**
+				- **prochain**
+					- **tous les jours**
+					- **premier**
+					- **......**
+					- **trente et un**
+						- **tous les mois**
+						- **de ce mois-ci**
+						- **Janvier**
+						- **......**
+						- **Décembre**
+							- **tous les ans**
+							- **toute l'année** OU **de cette année**
+							- **deux mille seize**
+							- **......**
+							- **deux mille vingt**
+								- **a**
+									- **minuit** OU **zéro heure**
+									- **une heure**
+									- **......**
+									- **vingt trois heure**
+										- **une**
+										- **......**
+										- **cinquante neuf**
+											- **minute**
+				
+###Exemples
+**Pour Aujourd'hui...**
+```text
+	- je veux ca pour aujourd'hui
+	- programme pour aujourd'hui à 15 heure 20
+	- pour aujourd'hui 15 heure 20
+	- pour 15 heure 20
+	- 15 heure 20
+	- 15 heure 20 minute
+```
+**Même chose pour demain, après demain, dans une semaine, dans deux semaine**, le calendrier passe automatiquement au mois suivant.
+```text
+	- je veux ca pour demain
+	- programme pour après demain à 15 heure 20
+	- pour dans une semaine à 15 heure 20
+	- dans deux semaine
+```
+**Un jour de la semaine...**. Si un jour est supérieure au jour courant, il sera pour la semaine suivante. Vous pouvez aussi ajouter 'prochain'.
+```text
+	- Pour Lundi
+	- je veux ca pour Lundi
+	- je veux ca pour Lundi prochain
+	- je veux ca pour Mardi à 10h30
+```
+**Une date...**   
+```text
+	- Pour le 10
+	- je veux ca le 10 à 14 heure 20
+	- je veux ca pour le dimanche 10
+	- le Dimanche 10 à 10h30
+```
+**Pour tous les jours...**
+```text	
+	- je veux ca tous les jours
+	- tous les jours
+	- tous les jours de ce mois-ci
+	- tous les jours à 18 heure
+	- tous les jours à 18 heure 15
+	- tous les jours à 18 heure 15 minute
+```	
+**Une date complète...**   
+```text
+	- Pour le 10 juillet
+	- je veux ca pour le 10 juillet à 14 heure 20
+	- programme ca pour le 10 juillet 2017 à 14 heure 20
+	- je veux ca pour le Dimanche 10 juillet 2017 à 10h30
+```
+**Période de temps...**   
+```text
+	- je veux ca tous les jours, tous les mois 						--> Défini tous les jours, tous les mois de cette année seulement.
+	- programme pour tous les jours, tous les mois, tous les ans	--> Défini tous les jours, tous les mois, tous les ans.
+	- tous les jours, tous les mois, tous les ans à 15 heure 30		--> Idem avec l'heure.
+	- je veux ca tous les mois  									--> Défini le jour courant tous les mois.
+	- je veux ca tous les mois à 20h30 								--> Idem avec l'heure.
+	- tous les ans													--> Défini le jour courant tous les ans.	
+	- tous les ans à 20h30 minutes									--> Idem avec l'heure.
+```
 	
-						
+## Les rubriques de mémo	
+Le fichier lazyrubric.xml permet d'ajouter des catégories de mémos que vous pouvez dire à l'enregistrement du mémo.
+
+Par exemple, pour une règle 'perso' et une catégorie 'personnel' :
+```xml	
+<item>perso<tag>out.action.rubric="personnel"</tag></item>
+```
+
+**Important**: Pensez à ajouter une règle dans le dictaphone.xml pour la recherche de cette catégorie.
+					
+					
 ## Problèmes et solutions
 - Le niveau de confidence:
-	- Si les erreurs de compréhensions sont trop importantes, que le dialogue est intérrompu ou qu'un choix est compris par Sarah alors que vous n'avez rien dit, pensez à augmenter le niveau de confidence.
+	- Si les erreurs de compréhensions sont trop importantes, que le dialogue est intérrompu ou qu'un choix d'une question est compris par Sarah alors que vous n'avez rien dit, pensez à augmenter le niveau de confidence.
 	- Pensez aussi à réduire le son des périphériques pendant un dialogue.
 	- Pensez aussi à améliorer votre diction. Sarah n'est pas un être humain !
 - Kinect:
